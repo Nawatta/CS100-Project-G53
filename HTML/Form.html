@@ -29,6 +29,14 @@
         <small>Only enter your first name and last name, middle name is not necessary.</small>
         <span id="fullnameError" class="error"></span>
       </div>
+
+      <!-- Nickname Field -->
+      <div class="form-group">
+        <label for="Nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname" />
+        <small>Only enter your nickname.</small>
+        <span id="nicknameError" class="error"></span>
+      </div>
       
       <!-- Student ID Field -->
       <div class="form-group">
@@ -46,6 +54,14 @@
         <span id="emailError" class="error"></span>
       </div>
 
+      <!-- Telephone Number Field -->
+      <div class="form-group">
+        <label for="tel">Telephone Number</label>
+        <input type="text" id="tel" name="tel" />
+        <small>Please enter your 10-digit Telephone Number.</small>
+        <span id="studentIDError" class="error"></span>
+      </div>
+
       <!-- Work/Activity Title Field -->
       <div class="form-group">
         <label for="workTitle">Work/Activity Title</label>
@@ -57,6 +73,13 @@
         <label for="activityType">Type of Work/Activity</label>
         <select id="activityType" name="activityType">
           <option value="" disabled selected>Select an option</option>
+          <option value="Course">Course</option>
+          <option value="Activity">Activity</option>
+          <option value="Work">Work</option>
+          <option value="Research">Research</option>
+          <option value="Sports">Sports</option>
+          <option value="Competition">Competition</option>
+          <option value="Computer Science">Computer Science</option>
         </select>
       </div>
       <!-- <div class="form-group">
@@ -117,6 +140,12 @@
       <div class="form-group">
         <label for="location">Location</label>
         <input type="text" id="location" name="location" />
+      </div>
+
+      <!-- Work/Activity Achive Field -->
+      <div class="form-group">
+        <label for="Achive">Work/Activity Achive</label>
+        <textarea type="text" id="Achive" name="Achive" rows="4 "></textarea>
       </div>
 
       <!-- Description Field -->
