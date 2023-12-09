@@ -25,6 +25,22 @@ const config = {
     }
     return true;
   }
+
+  // Function to validate Nickname
+function validateNickname() {
+  const nicknameInput = document.getElementById("nickname");
+  const nickname = nicknameInput.value.trim();
+  const errorElement = document.getElementById("nicknameError");
+
+  if (nickname.length < 2) {
+    errorElement.textContent = "Please enter your Nickname.";
+    return false;
+  } else {
+    errorElement.textContent = ""; // Clear the error message when valid
+  }
+  return true;
+}
+
   
   // Function to validate Student ID
   function validateStudentID() {
@@ -56,12 +72,29 @@ const config = {
     }
     return true;
   }
+
+  // Function to validate Student ID
+  function validatetel() {
+    const telInput = document.getElementById("tel");
+    const telPattern = /^\d{10}$/;
+    const errorElement = document.getElementById("telError");
+  
+    if (!telPattern.test(telInput.value)) {
+      errorElement.textContent = "Please enter a 10-digit Telephone Number.";
+      return false;
+    } else {
+      errorElement.textContent = ""; // Clear the error message when valid
+    }
+    return true;
+  }
   
   // Function to validate form inputs on user input
   function validateFormOnInput() {
     validateName();
+    validateNickname();
     validateStudentID();
     validateEmail();
+    validatetel();
   }
   
   // Function to fetch activity types from the backend
@@ -105,7 +138,7 @@ const config = {
     event.preventDefault();
   
     // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail()) {
+    if (!validateName() || !validateNickname || !validateStudentID() || !validateEmail() || !validatetel) {
       return;
     }
   
@@ -124,8 +157,10 @@ const config = {
     const data = {
       first_name: formData.get("fullname").split(" ")[0],
       last_name: formData.get("fullname").split(" ")[1],
+      nickname: formData.get("nickname"),
       student_id: parseInt(formData.get("studentID")),
       email: formData.get("email"),
+      tel: parseInt(formData.get("tel")),
       title: formData.get("workTitle"),
       type_of_work_id: parseInt(formData.get("activityType")),
       academic_year: parseInt(formData.get("academicYear")) - 543,
@@ -133,6 +168,7 @@ const config = {
       start_date: formData.get("startDate"),
       end_date: formData.get("endDate"),
       location: formData.get("location"),
+      acehive: formData.get("Acheieve"),
       description: formData.get("description")
     };
   
@@ -177,7 +213,9 @@ const config = {
   
   // Event listeners for input validation on user input
   document.getElementById("fullname").addEventListener("input", validateName);
+  document.getElementById("nickname").addEventListener("input",validateNickname);
   document
     .getElementById("studentID")
     .addEventListener("input", validateStudentID);
   document.getElementById("email").addEventListener("input", validateEmail);
+  document.getElementById("tel").addEventListener("input", validatetel);
