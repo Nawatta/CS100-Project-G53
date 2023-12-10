@@ -133,7 +133,6 @@ function validateNickname() {
   });
   
   // Function to submit the form
-  // Function to submit the form
   async function submitForm(event) {
     event.preventDefault();
   
@@ -219,3 +218,81 @@ function validateNickname() {
     .addEventListener("input", validateStudentID);
   document.getElementById("email").addEventListener("input", validateEmail);
   document.getElementById("tel").addEventListener("input", validatetel);
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("myForm");
+  
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // ป้องกันการ submit แบบปกติ
+  
+      // ตรวจสอบข้อมูลก่อน submit
+      if (!validateForm()) {
+        return;
+      }
+  
+      // เรียกใช้ฟังก์ชันที่ดึงข้อมูลจากฟอร์ม
+      const formData = getFormData();
+  
+      // เรียกใช้ฟังก์ชันที่แสดงข้อมูล
+      displayFormData(formData);
+    });
+  });
+  
+  // ฟังก์ชันที่ตรวจสอบข้อมูลก่อน submit
+  function validateForm() {
+    // ตรวจสอบข้อมูลทุก field ตามที่ต้องการ
+    const fullname = document.getElementById("fullname").value;
+    const nickname = document.getElementById("nickname").value;
+    const studentID = document.getElementById("studentID").value;
+    const email = document.getElementById("email").value;
+    const tel = document.getElementById("tel").value;
+  
+    // ตรวจสอบว่าข้อมูลไม่ว่างเปล่า
+    if (!validateName() || !validateNickname || !validateStudentID() || !validateEmail() || !validatetel) {
+      alert("Please fill in all required fields.");
+      return false;
+    }
+  }
+  
+  // ฟังก์ชันที่ดึงข้อมูลจากฟอร์ม
+  function getFormData() {
+    return {
+    fullname: document.getElementById("fullname").value,
+    nickname: document.getElementById("nickname").value,
+    studentID: document.getElementById("studentID").value,
+    email: document.getElementById("email").value,
+    tel: document.getElementById("tel").value,
+    workTitle: document.getElementById("workTitle").value,
+    activityType: document.getElementById("activityType").value,
+    academicYear: document.getElementById("academicYear").value,
+    semester: document.getElementById("semester").value,
+    startDate: document.getElementById("startDate").value,
+    endDate: document.getElementById("endDate").value,
+    location: document.getElementById("location").value,
+    Acheive: document.getElementById("Acheive").value,
+    description: document.getElementById("description").value,
+  };
+  }
+  
+  // ฟังก์ชันที่แสดงข้อมูล
+  function displayFormData(formData) {
+    const outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+      <p><strong>Name:</strong> ${formData.fullname}</p>
+      <p><strong>Nickname:</strong> ${formData.nickname}</p>
+      <p><strong>Student ID:</strong> ${formData.studentID}</p>
+      <p><strong>Email:</strong> ${formData.email}</p>
+      <p><strong>Telephone Number:</strong> ${formData.tel}</p>
+      <p><strong>Work/Activity Title:</strong> ${formData.workTitle}</p>
+      <p><strong>Type of Work/Activity:</strong> ${formData.activityType}</p>
+      <p><strong>Academic Year:</strong> ${formData.academicYear}</p>
+      <p><strong>Semester:</strong> ${formData.semester}</p>
+      <p><strong>Start Date/Time:</strong> ${formData.startDate}</p>
+      <p><strong>End Date/Time:</strong> ${formData.endDate}</p>
+      <p><strong>Location:</strong> ${formData.location}</p>
+      <p><strong>Work/Activity Achieve:</strong> ${formData.Acheive}</p>
+      <p><strong>Description:</strong> ${formData.description}</p>
+    `;
+  }
