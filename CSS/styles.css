@@ -1,7 +1,14 @@
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
+*{
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+.row {
+    flex: 1 0 auto;
+    font-weight: 550;
 }
   
 [class*="col-"] {
@@ -46,3 +53,71 @@
     .col-14 {width: 93.33%;}
     .col-15 {width: 100%;}
   }
+
+  header {
+    text-align: center;
+    background-color: rgb(240, 231, 220);
+    padding: 10px;
+    flex: 0 0 auto;
+}
+
+.navbar {
+    background-color: gray;
+    height: 25px;
+    clear: both;
+}
+
+body {
+    margin: 0%;
+    background-color:beige;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+footer {
+    text-align: center;
+    background-color: gray;
+    padding: 15px;
+    flex: 0 0 auto;
+    font-size: 24px;
+    clear: both;
+}
+
+.CSTU {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+
+.Member-Box1,.Member-Box2,.Member-Box3 {
+    text-align: center;
+}
+
+.col-5 div{
+    font-size: 18px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    background-color: rgb(158, 157, 157);
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: rgb(139, 138, 138);
+}
+
