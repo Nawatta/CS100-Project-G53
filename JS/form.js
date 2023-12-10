@@ -254,6 +254,8 @@ function validateNickname() {
       alert("Please fill in all required fields.");
       return false;
     }
+
+    return true
   }
   
   // ฟังก์ชันที่ดึงข้อมูลจากฟอร์ม
